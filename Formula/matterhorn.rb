@@ -7,6 +7,7 @@ class Matterhorn < Formula
   depends_on "ghc" => :build
 
   def install
+    system "rm", "cabal.project"
     system "cabal", "new-update"
     system "cabal", "install", "tasty-quickcheck"
     system "./build.sh"
