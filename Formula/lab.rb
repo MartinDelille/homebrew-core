@@ -1,8 +1,8 @@
 class Lab < Formula
   desc "Lab wraps Git or Hub, making it simple to clone, fork, and interact with repositories on GitLab"
   homepage "https://zaquestion.github.io/lab"
-  url "https://github.com/zaquestion/lab/archive/v0.15.0.tar.gz"
-  sha256 "cf127e616dea308e85da8b81c5a43389a5404541a65bc4ed56c6e3a1145a92dc"
+  url "https://github.com/zaquestion/lab/archive/v0.15.2.tar.gz"
+  sha256 "fa4db6111cffcc8da4ac97f85c5784093276fa25cadc438a4f09070b636b4c8e"
   depends_on "go" => :build
 
   def install
@@ -15,9 +15,9 @@ class Lab < Formula
     %w[haunted house].each { |f| touch testpath/f }
     system "git", "add", "haunted", "house"
     system "git", "commit", "-a", "-m", "Initial Commit"
-    system "git", "config", "--local", "--add", "gitlab.host", "http://example.com"
-    system "git", "config", "--local", "--add", "gitlab.user", "test"
-    system "git", "config", "--local", "--add", "gitlab.token", "test"
+#    system "git", "config", "--local", "--add", "gitlab.host", "http://example.com"
+#    system "git", "config", "--local", "--add", "gitlab.user", "test"
+#    system "git", "config", "--local", "--add", "gitlab.token", "test"
     assert_equal "haunted\nhouse", shell_output("#{bin}/lab ls-files").strip
   end
 end
